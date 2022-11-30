@@ -1,0 +1,8 @@
+{% load static %}
+{% block contnent %}
+    <form method = "POST" action= "">
+    {% csrf_token %}
+    {{form}}
+    <input type= "submit" name = "Submit">
+    </form>
+{% endblock contnent %}

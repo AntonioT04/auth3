@@ -1,0 +1,65 @@
+body {
+  background-color: lightblue;
+}
+
+.reg_box {
+  justify-content: center;
+}
+
+.submit {
+  background-color: aqua;
+}
+
+header {
+  top: 0;
+  background-color: transparent;
+}
+
+nav {
+  color: #4abef8;
+  display: flex;
+  top: 0;
+  align-items: center;
+  max-width: 1144px;
+  margin: 0;
+}
+
+nav img {
+  width: 25%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links a {
+  position: absolute;
+  font-size: 1.5em;
+  color: #f2f7f9;
+  text-decoration: none;
+}
+.links a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.links a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}/*# sourceMappingURL=style.css.map */
