@@ -34,7 +34,7 @@ def loginPage(request):
     if request.method== "POST":
         username= request.POST.get("username")
         password= request.POST.get("password")
-
+        
         user= authenticate(request, username= username, password= password)
         if user is not None:
             login(request, user)
@@ -42,8 +42,6 @@ def loginPage(request):
 
         else:
             messages.info(request, "Username OR password is wrong. Try Again.")
-        
-
     context= { }
     return render(request, 'login.html' ,context)
 
@@ -119,10 +117,7 @@ def deleteOrder(request, pk):
     return render(request, 'delete.html', context)
 
 
-@login_required(login_url= "login")
-def userPage(request):
-    context= {}
-    return render(request, 'user.html', context)
+
 
 @login_required(login_url="log_in")
 def createProf(request):
@@ -138,3 +133,17 @@ def createProf(request):
             p.save()
             return redirect("home")
     return render(request, "create_prof.html", context)
+
+@login_required(login_url= "login")
+def math(request):
+    orders= Order.objects.all()
+    customers= Customer.objects.all()
+    products= Product.objects.all()
+
+    checkings= orders.filter(status= "Checkings").count()
+    savings= orders.filter(status= "Savings").count()
+    context= {'orders': orders, 'customers':customers, 'products':products,
+    'savings': savings, 'checkings':checkings
+    }
+
+    return render(request, 'user.html' ,context)

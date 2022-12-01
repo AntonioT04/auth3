@@ -1,5 +1,5 @@
 body{
-    background-color: lightblue;
+    background-color: lightblue !important;
 }
 .reg_box{
    justify-content: center; 
@@ -50,7 +50,7 @@ nav img {
       position: absolute;
       font-size: 1.5em;
      
-      color: #f2f7f9;
+      color: $black;
       text-decoration: none;
       &:after{
           content: '';
@@ -60,7 +60,7 @@ nav img {
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: $white;
+          background-color: $black;
           transform-origin: bottom right;
           transition: transform 0.25s ease-out;
       }

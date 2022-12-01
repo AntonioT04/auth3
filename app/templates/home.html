@@ -2,10 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-
-
-
     <div>
         <h5>USERS</h5>
         <hr>
@@ -44,30 +40,38 @@
             <hr>
             
             <div class= 'card'>
-                <a class ='btn' href = "{%url "create_order"%}"> Create Account</a>
-                <table>
-                    <tr>
-                        <th>Account User</th>
-                        <th>Date Created</th>
-                        <th>Type</th>
-                        <th>Update</th>
-                        <th>Remove</th>
+                
+                <table class="table table-bordered table-dark">
+                    <thead>
                         
-                    </tr>
-                    {% for order in orders %}
-                        <tr>
-                            <td>{{order.customer}}</td>
-                            <td>{{order.date_created}}</td>
-                            <td>{{order.status}}</td>
-                            <td><a href= "{%url 'update_order' order.id %}">Update</a> </td>
-                            <td><a href= "{%url 'delete_order' order.id %}">Delete</a> </td>
-                             
-                        </tr>
+                      <tr>
+                        
+                        <th scope="col">Account User</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Remove</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                      <tr>
+                        
+                        
+                        <td>{{order.customer}}</td>
+                        <td>{{order.date_created}}</td>
+                        <td>{{order.status}}</td>
+                        <td><a href= "{%url 'update_order' order.id %}">Update</a> </td>
+                        <td><a href= "{%url 'delete_order' order.id %}">Delete</a> </td>
+                        
+                      </tr>
+                      {% endfor %}
+                      
+                    </tbody>
                     
-                    {% endfor %}
-                </table>
+                  </table>
         <div>
-</body>
-</html>
+
 
 {% endblock content %}

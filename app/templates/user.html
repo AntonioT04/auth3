@@ -3,4 +3,34 @@
 
 
     <h3> User Profile</h3>
+    <a class ='btn' href = "{%url "create_order"%}"> Create Account</a>
+    <table class="table table-bordered table-dark">
+        <thead>
+            
+          <tr>
+            
+            <th scope="col">Account User</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Type</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+          <tr>
+            
+            
+            <td>{{order.customer}}</td>
+            <td>{{order.date_created}}</td>
+            <td>{{order.status}}</td>
+            
+            
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+        
+      </table>
+
 {% endblock content %}
